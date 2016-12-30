@@ -1,5 +1,7 @@
 import React from 'react';
 
+const isString = (obj) => typeof obj === "string";
+
 class ReactRadioButtonGroup extends React.Component {
     constructor(props) {
         super(props);
@@ -27,21 +29,24 @@ class ReactRadioButtonGroup extends React.Component {
         return (
             <span>
                 {this.props.options.map(option => {
-                    const isChecked = this.state.currentValue === option.value;
+                    const value = isString(option) ? option : option.value;
+                    const label = isString(option) ? option : option.label;
+                    const isChecked = this.state.currentValue === value;
+
                     return (
-                        <span key={option.value}>
+                        <span key={value}>
                             <input
                                 type="radio"
                                 checked={isChecked}
-                                id={option.value}
+                                id={value}
                                 onChange={this.handleChange}
                                 className={this.props.inputClassName}
                             />
                             <label
-                                htmlFor={option.value}
+                                htmlFor={value}
                                 className={this.props.labelClassName}
                             >
-                                {option.label}
+                                {label}
                             </label>
                         </span>
                     );
@@ -53,10 +58,13 @@ class ReactRadioButtonGroup extends React.Component {
 
 ReactRadioButtonGroup.propTypes = {
     options: React.PropTypes.arrayOf(
-        React.PropTypes.shape({
-            value: React.PropTypes.string,
-            label: React.PropTypes.string
-        })
+        React.PropTypes.oneOfType([
+            React.PropTypes.shape({
+                value: React.PropTypes.string,
+                label: React.PropTypes.string
+            }),
+            React.PropTypes.string
+        ])
     ).isRequired,
     defaultValue: React.PropTypes.string.isRequired,
     onChange: React.PropTypes.func,
