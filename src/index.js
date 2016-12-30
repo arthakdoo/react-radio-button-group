@@ -43,7 +43,7 @@ class ReactRadioButtonGroup extends React.Component {
         const groupClassName = this.props.groupClassName || '';
         const itemClassName = this.props.itemClassName || '';
         return (
-            <span className={groupClassName}>
+            <div className={groupClassName}>
                 {this.props.options.map(option => {
                     const value = isString(option) ? option : option.value;
                     const label = isString(option) ? option : option.label;
@@ -53,7 +53,7 @@ class ReactRadioButtonGroup extends React.Component {
                     const isChecked = this.state.currentValue === value;
 
                     return (
-                        <span key={value} className={itemClassName}>
+                        <div key={value} className={itemClassName}>
                             <input
                                 type="radio"
                                 checked={isChecked}
@@ -64,10 +64,10 @@ class ReactRadioButtonGroup extends React.Component {
                             <label htmlFor={inputId} className={labelClassName}>
                                 {label}
                             </label>
-                        </span>
+                        </div>
                     );
                 })}
-            </span>
+            </div>
         );
     }
 }
