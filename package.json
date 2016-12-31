@@ -1,6 +1,6 @@
 {
   "name": "react-radio-button-group",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React component containing configurable group of radio buttons",
   "main": "build/bundle.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/darko82/react-radio-button-group.git"
+    "url": "git+https://github.com/dmaksimovic/react-radio-button-group.git"
   },
   "keywords": [
     "react",
@@ -20,9 +20,9 @@
   "author": "Darko Maksimovic",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/darko82/react-radio-button-group/issues"
+    "url": "https://github.com/dmaksimovic/react-radio-button-group/issues"
   },
-  "homepage": "https://github.com/darko82/react-radio-button-group#readme",
+  "homepage": "https://github.com/dmaksimovic/react-radio-button-group#readme",
   "devDependencies": {
    "webpack": "^1.14.0"
   },

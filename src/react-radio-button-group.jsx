@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactRadioButton from './react-radio-button';
 import {isString} from './util';
+import {getNonEmptyAttr} from './util';
+
+const CLASS_NAME = 'className';
 
 const selectionChanged = (newValue, currentValue) => {
     return newValue !== currentValue;
@@ -9,6 +12,8 @@ const selectionChanged = (newValue, currentValue) => {
 class ReactRadioButtonGroup extends React.Component {
     constructor(props) {
         super(props);
+
+        this.id = ReactRadioButtonGroup.generateId();
         this.state = {currentValue: this.props.defaultValue};
         this.handleChange = this.handleChange.bind(this);
         this.fireCurrentValue = this.fireCurrentValue.bind(this);
@@ -36,12 +41,13 @@ class ReactRadioButtonGroup extends React.Component {
     render() {
         const groupClassName = this.props.groupClassName || '';
         return (
-            <div className={groupClassName}>
+            <div {...getNonEmptyAttr(CLASS_NAME, groupClassName)}>
                 {this.props.options.map(option => {
                     const value = isString(option) ? option : option.value;
                     const isChecked = this.state.currentValue === value;
                     return (
                         <ReactRadioButton
+                            groupId={this.id}
                             key={value}
                             option={option}
                             checked={isChecked}
@@ -56,6 +62,9 @@ class ReactRadioButtonGroup extends React.Component {
         );
     }
 }
+
+ReactRadioButtonGroup.idGenerator = 1;
+ReactRadioButtonGroup.generateId = () => ReactRadioButtonGroup.idGenerator++;
 
 ReactRadioButtonGroup.propTypes = {
     options: React.PropTypes.arrayOf(
