@@ -1,5 +1,5 @@
 module.exports = {
-    entry: "./src/index.js",
+    entry: "./src/react-radio-button-group.jsx",
     output: {
         filename: 'bundle.js',
         library: 'ReactRadioGroup',
@@ -9,7 +9,7 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js$/,
+                test: /\.(jsx|js)$/,
                 loader: "babel-loader",
                 exclude: /node_modules/,
                 query: {
@@ -19,6 +19,6 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['', '.js']
+        extensions: ['', '.js', '.jsx']
     }
 };

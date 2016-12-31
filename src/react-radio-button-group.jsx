@@ -1,9 +1,10 @@
 import React from 'react';
+import ReactRadioButton from './react-radio-button';
+import {isString} from './util';
 
-const isString = (obj) => typeof obj === "string";
-
-const ComponentName = 'react-radio-button-group';
-const getUniqueId = seed => ComponentName + '-' + seed;
+const selectionChanged = (newValue, currentValue) => {
+    return newValue !== currentValue;
+}
 
 class ReactRadioButtonGroup extends React.Component {
     constructor(props) {
@@ -21,16 +22,9 @@ class ReactRadioButtonGroup extends React.Component {
 
     handleChange(event) {
         const newValue = event.target.name;
-
-        if (newValue === this.state.currentValue) {
-            return;
+        if (selectionChanged(newValue, this.state.currentValue)) {
+            this.setState({currentValue: newValue}, this.fireCurrentValue);
         }
-
-        this.setState({
-            currentValue: newValue
-        });
-
-        this.fireCurrentValue();
     }
 
     componentDidMount() {
@@ -41,30 +35,21 @@ class ReactRadioButtonGroup extends React.Component {
 
     render() {
         const groupClassName = this.props.groupClassName || '';
-        const itemClassName = this.props.itemClassName || '';
         return (
             <div className={groupClassName}>
                 {this.props.options.map(option => {
                     const value = isString(option) ? option : option.value;
-                    const label = isString(option) ? option : option.label;
-                    const inputClassName = option.inputClassName || this.props.inputClassName || '';
-                    const labelClassName = option.labelClassName || this.props.labelClassName || '';
-                    const inputId = getUniqueId(value);
                     const isChecked = this.state.currentValue === value;
-
                     return (
-                        <div key={value} className={itemClassName}>
-                            <input
-                                type="radio"
-                                checked={isChecked}
-                                id={inputId}
-                                onChange={this.handleChange}
-                                className={inputClassName}
-                                name={value}/>
-                            <label htmlFor={inputId} className={labelClassName}>
-                                {label}
-                            </label>
-                        </div>
+                        <ReactRadioButton
+                            key={value}
+                            option={option}
+                            checked={isChecked}
+                            onChange={this.handleChange}
+                            inputClassName={this.props.inputClassName}
+                            labelClassName={this.props.labelClassName}
+                            itemClassName={this.props.itemClassName}
+                        />
                     );
                 })}
             </div>
@@ -79,6 +64,7 @@ ReactRadioButtonGroup.propTypes = {
                 value: React.PropTypes.string,
                 label: React.PropTypes.string,
                 inputClassName: React.PropTypes.string,
+                itemClassName: React.PropTypes.string,
                 labelClassName: React.PropTypes.string
             }),
             React.PropTypes.string
