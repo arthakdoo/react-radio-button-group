@@ -138,37 +138,37 @@ React component for a group of radio buttons
 </p>
 
 <h2>onChange</h2>
-<b>Type: func</b>
+<b>Type: func, optional</b>
 <p>
     A function to be called when a different radio button is selected. If user clicks on a radio button which is already checked, this function will NOT be called. The function will be passed a single parameter - value of the newly checked radio button.
 </p>
 
 <h2>fireOnMount</h2>
-<b>Type: boolean</b>
+<b>Type: boolean, optional</b>
 <p>
     If set to true and onChange is specified, the onChange function will be called on mount with the defaultValue as parameter.
 </p>
 
 <h2>inputClassName</h2>
-<b>Type: string</b>
+<b>Type: string, optional</b>
 <p>
     If specified, it will populate all inputs' <em>class</em> attributes. If any option from <em>options</em> parameter specifies a different inputClassName, it will have priority over this one.
 </p>
 
 <h2>labelClassName</h2>
-<b>Type: string</b>
+<b>Type: string, optional</b>
 <p>
     If specified, it will populate all labels' <em>class</em> attributes. If any option from <em>options</em> parameter specifies a different labelClassName, it will have priority over this one.
 </p>
 
 <h2>itemClassName</h2>
-<b>Type: string</b>
+<b>Type: string, optional</b>
 <p>
     If specified, it will populate all <em>class</em> attributes of <em>div</em>'s containing radio-label groups. If any option from <em>options</em> parameter specifies a different itemClassName, it will have priority over this one.
 </p>
 
 <h2>groupClassName</h2>
-<b>Type: string</b>
+<b>Type: string, optional</b>
 <p>
     If specified, it will populate <em>class</em> attribute of the <em>div</em> encompassing the whole group of items.
 </p>
