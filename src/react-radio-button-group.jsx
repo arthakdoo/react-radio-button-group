@@ -42,13 +42,13 @@ class ReactRadioButtonGroup extends React.Component {
         const groupClassName = this.props.groupClassName || '';
         return (
             <div {...getNonEmptyAttr(CLASS_NAME, groupClassName)}>
-                {this.props.options.map(option => {
+                {this.props.options.map((option, i) => {
                     const value = isString(option) ? option : option.value;
                     const isChecked = this.state.currentValue === value;
                     return (
                         <ReactRadioButton
                             groupId={this.id}
-                            key={value}
+                            key={i}
                             option={option}
                             checked={isChecked}
                             onChange={this.handleChange}
@@ -70,7 +70,7 @@ ReactRadioButtonGroup.propTypes = {
     options: React.PropTypes.arrayOf(
         React.PropTypes.oneOfType([
             React.PropTypes.shape({
-                value: React.PropTypes.string,
+                value: React.PropTypes.string.isRequired,
                 label: React.PropTypes.string,
                 inputClassName: React.PropTypes.string,
                 itemClassName: React.PropTypes.string,

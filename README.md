@@ -33,6 +33,20 @@ React component for a group of radio buttons
     &lt;/form&gt;
 </pre>
 
+<h1> Syntax </h1>
+<pre>
+    &lt;<b>ReactRadioButtonGroup</b>
+        <b>options</b>=array(string | {value <span style='color: green'>[required]</span>, label, itemClassName, inputClassName, labelClassName}) <span style='color: green'>[required]</span>
+        <b>defaultValue</b>=string <span style='color: green'>[required]</span>
+        <b>onChange</b>=func(checkedValue)
+        <b>fireOnMount</b>=true|false
+        <b>itemClassName</b>=string
+        <b>inputClassName</b>=string
+        <b>labelClassName</b>=string
+        <b>groupClassName</b>=string
+    /&gt;
+</pre>
+
 <h1> Description </h1>
 <p>
     This component will generate a group of radio buttons, each enriched with a unique ID and accompanied by a label.
@@ -43,16 +57,11 @@ React component for a group of radio buttons
 </p>
 
 <pre>
-        &lt;div&gt; <span class='comment'>&lt;!-- div for whole <b>group</b> --&gt;</span>
+        &lt;div class='<b>groupClassName</b>'}&gt; <span style='color: green'>&lt;!-- div for whole <b>group</b> --&gt;</span>
 
-            &lt;div&gt; <span class='comment'>&lt;!--div for each <b>item</b> --&gt;</span>
-                &lt;input type='radio' id='[ID]' name='[VALUE]' .../&gt;
-                &lt;label for='[ID]'&gt;Label&lt;/label&gt;
-            &lt;/div&gt;
-
-            &lt;div&gt; <span class='comment'>&lt;!--div for <i>another</i> item --&gt;</span>
-                &lt;input type='radio' id='[ID]' name='[VALUE]' .../&gt;
-                &lt;label for='[ID]'&gt;Label&lt;/label&gt;
+            &lt;div class='<b>itemClassName</b>'&gt; <span style='color: green'>&lt;!--div for each <b>item</b> --&gt;</span>
+                &lt;input type='radio' class='<b>inputClassName</b> id='[unique-id]' name='<b>value</b>' /&gt;
+                &lt;label class='<b>labelClassName</b>' for='[unique-id]'&gt;<b>Label</b>&lt;/label&gt;
             &lt;/div&gt;
 
             ...
@@ -66,18 +75,18 @@ React component for a group of radio buttons
 
 <h1> Props </h1>
 <h2>options</h2>
-<b>Type: array</b>
+<b>Type: array, required</b>
 <p>
-    An array in which each element specified a single radio button + label item. Each element can be either a <b>string</b> or an <b>object</b> of the following form:
+    An array in which each element specifies a single item in the group (item = option = radio + its label). Each element can be either a <b>string</b> or an <b>object</b> of the following form:
 </p>
 
 <pre>
     {
-        value: 'apple',                    <span class='comment'>// <b>name</b> attribute of input[type=radio]</span>
-        label: 'Apple',                    <span class='comment'>// <b>text</b> contents of the accompanying label</span>
-        itemClassName: 'radio-group-item', <span class='comment'>// <b>class</b> attribute of <b>item</b>, the div encompassing input and label</span>
-        labelClassName: 'label-item',      <span class='comment'>// <b>class</b> attribute of <b>label</b></span>
-        inputClassName: 'radio-item'       <span class='comment'>// <b>class</b> attribute of <b>input</b></span>
+        value: 'apple',                    <span style='color: green'>// required; <b>name</b> attribute of input[type=radio]</span>
+        label: 'Apple',                    <span style='color: green'>// <b>text</b> label text; if not specified, uses <b>value</b></span>
+        itemClassName: 'radio-group-item', <span style='color: green'>// <b>class</b> attribute of <b>item</b>, the div encompassing input and label</span>
+        labelClassName: 'label-item',      <span style='color: green'>// <b>class</b> attribute of <b>label</b></span>
+        inputClassName: 'radio-item'       <span style='color: green'>// <b>class</b> attribute of <b>input</b></span>
     }
 </pre>
 
@@ -123,7 +132,7 @@ React component for a group of radio buttons
 </pre>
 
 <h2>defaultValue</h2>
-<b>Type: string</b>
+<b>Type: string, required</b>
 <p>
     The radio button to be checked on mount. The radio button to be checked is specified by its <b>value</b>. In example above, this could be <b>Apple</b> or <b>Mandarin_orange</b>.
 </p>
@@ -156,6 +165,12 @@ React component for a group of radio buttons
 <b>Type: string</b>
 <p>
     If specified, it will populate all <em>class</em> attributes of <em>div</em>'s containing radio-label groups. If any option from <em>options</em> parameter specifies a different itemClassName, it will have priority over this one.
+</p>
+
+<h2>groupClassName</h2>
+<b>Type: string</b>
+<p>
+    If specified, it will populate <em>class</em> attribute of the <em>div</em> encompassing the whole group of items.
 </p>
 
 

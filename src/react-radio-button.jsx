@@ -11,7 +11,7 @@ export default class ReactRadioButton extends React.Component {
     render() {
         const option = this.props.option;
         const value = isString(option) ? option : option.value;
-        const label = isString(option) ? option : option.label;
+        const label = isString(option) ? option : (option.label !== undefined ? option.label : option.value);
 
         const itemClassName = option.itemClassName || this.props.itemClassName || '';
         const inputClassName = option.inputClassName || this.props.inputClassName || '';
