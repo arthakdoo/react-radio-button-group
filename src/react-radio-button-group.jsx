@@ -43,14 +43,12 @@ class ReactRadioButtonGroup extends React.Component {
         return (
             <div {...getNonEmptyAttr(CLASS_NAME, groupClassName)}>
                 {this.props.options.map((option, i) => {
-                    const value = isString(option) ? option : option.value;
-                    const isChecked = this.state.currentValue === value;
                     return (
                         <ReactRadioButton
                             groupId={this.id}
                             key={i}
+                            currentValue={this.state.currentValue}
                             option={option}
-                            checked={isChecked}
                             onChange={this.handleChange}
                             inputClassName={this.props.inputClassName}
                             labelClassName={this.props.labelClassName}
