@@ -1,6 +1,6 @@
 {
   "name": "react-radio-button-group",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "React component containing configurable group of radio buttons",
   "main": "build/bundle.js",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/dmaksimovic/react-radio-button-group#readme",
   "devDependencies": {
-   "webpack": "^1.14.0"
+    "webpack": "^1.14.0"
   },
   "dependencies": {
     "babel-core": "^6.21.0",

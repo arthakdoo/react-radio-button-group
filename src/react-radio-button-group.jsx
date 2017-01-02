@@ -2,6 +2,7 @@ import React from 'react';
 import ReactRadioButton from './react-radio-button';
 import {isString} from './util';
 import {getNonEmptyAttr} from './util';
+import {selectStringParam} from './util';
 
 const CLASS_NAME = 'className';
 
@@ -14,22 +15,47 @@ class ReactRadioButtonGroup extends React.Component {
         super(props);
 
         this.id = ReactRadioButtonGroup.generateId();
-        this.state = {currentValue: this.props.defaultValue};
+
+        this.state = this.createInitialState(props);
+
         this.handleChange = this.handleChange.bind(this);
         this.fireCurrentValue = this.fireCurrentValue.bind(this);
     }
 
+    getComponentName() {
+        return 'react-radio-button-group';
+    }
+
+    createInitialState(props) {
+        return {currentValue: props.defaultValue};
+    }
+
+    getOnChangeCallbackParam() {
+        return this.state.currentValue;
+    }
+
     fireCurrentValue() {
         if (this.props.onChange) {
-            this.props.onChange(this.state.currentValue);
+            this.props.onChange(this.getOnChangeCallbackParam());
         }
     }
 
-    handleChange(event) {
+    updateState(event, callback) {
         const newValue = event.target.name;
-        if (selectionChanged(newValue, this.state.currentValue)) {
-            this.setState({currentValue: newValue}, this.fireCurrentValue);
-        }
+        this.setState({currentValue: newValue}, callback);
+    }
+
+    stateChanged(oldState, newState) {
+        return oldState.currentValue !== newState.currentValue;
+    }
+
+    handleChange(event) {
+        const oldState = JSON.parse(JSON.stringify(this.state));
+        this.updateState(event, function() {
+            if (this.stateChanged(oldState, this.state)) {
+                this.fireCurrentValue();
+            }
+        }.bind(this));
     }
 
     componentDidMount() {
@@ -38,16 +64,28 @@ class ReactRadioButtonGroup extends React.Component {
         }
     }
 
+    getInputType() {
+        return "radio";
+    }
+
+    getIsValueChecked(value) {
+        return this.state.currentValue === value;
+    }
+
     render() {
         const groupClassName = this.props.groupClassName || '';
+        const groupId = this.getComponentName() + '-' + this.id;
+
         return (
             <div {...getNonEmptyAttr(CLASS_NAME, groupClassName)}>
                 {this.props.options.map((option, i) => {
+                    const value = selectStringParam(option, option.value);
                     return (
-                        <ReactRadioButton
-                            groupId={this.id}
-                            key={i}
-                            currentValue={this.state.currentValue}
+                        <ReactRadioButton key={i}
+                            value={value}
+                            inputType={this.getInputType()}
+                            isChecked={this.getIsValueChecked(value)}
+                            groupId={groupId}
                             option={option}
                             onChange={this.handleChange}
                             inputClassName={this.props.inputClassName}
