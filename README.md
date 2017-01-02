@@ -20,17 +20,14 @@ React component for a group of radio buttons
 <h1> Usage </h1>
 <pre>
     import ReactRadioButtonGroup from 'react-radio-button-group';
-
-    ...
-
-    &lt;form submit='...'&gt;
-        &lt;[other form fields]...&gt;
-
-        <b>&lt;ReactRadioButtonGroup {...props}/&gt;</b>
-
-        &lt;[other form fields]...&gt;
-        &lt;button type='submit'&gt;
-    &lt;/form&gt;
+    ReactDOM.render(
+        &lt;form submit='...'&gt;
+            &lt;[other form fields]...&gt;
+            <b>&lt;ReactRadioButtonGroup {...props}/&gt;</b>
+            &lt;[other form fields]...&gt;
+            &lt;button type='submit'&gt;
+        &lt;/form&gt;
+    );
 </pre>
 
 <h1> Syntax </h1>
