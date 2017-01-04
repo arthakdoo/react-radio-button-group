@@ -34,7 +34,8 @@ Stateful React component for a group of radio buttons
 <pre>
     &lt;<b>ReactRadioButtonGroup</b>
         <b>options</b>=array(string | {value <span style='color: green'>[required]</span>, label, itemClassName, inputClassName, labelClassName}) <span style='color: green'>[required]</span>
-        <b>defaultValue</b>=string <span style='color: green'>[required]</span>
+        <b>isStateful</b>=bool (false by default)
+        <b>value</b>=string <span style='color: green'>[required]</span>
         <b>onChange</b>=func(checkedValue)
         <b>fireOnMount</b>=true|false
         <b>itemClassName</b>=string
@@ -128,22 +129,39 @@ Stateful React component for a group of radio buttons
 &lt;/pre&gt;
 </pre>
 
-<h2>defaultValue</h2>
+<h2>isStateful</h2>
+If isStateful=true, then state is maintained and inputs are controlled by this state. In this case, the <b>value</b> parameter is used only on mount to specify the initialy checked input. Later, use onChange callback to be notified about a new value of the group.
+
+If isStateful=false (default), then state is not maintained and <i>checked</i> status of inputs is controlled purely by <b>value</b> parameter. Use this component in stateless group when you want to integrate it into a Redux framework. The onChange callback will signal when the user is trying to select a different radio button, which you should then use to generate a new <b>value</b> for this component and re-render it. If isStateful is false, the <i>fireOnMount</i> flag (below) has no effect because there is no initial state.
+
+<h2>value</h2>
 <b>Type: string, required</b>
 <p>
-    The radio button to be checked on mount. The radio button to be checked is specified by its <b>value</b>. In example above, this could be <b>Apple</b> or <b>Mandarin_orange</b>.
+    The radio button to be checked. The radio button to be checked is specified by its <b>value</b>. In example above, this could be <b>Apple</b> or <b>Mandarin_orange</b>.
+</p>
+
+<p>
+    Note: This parameter has different meaning depending on value of isStateful parameter - please see description of this parameter for details.
 </p>
 
 <h2>onChange</h2>
 <b>Type: func, optional</b>
 <p>
-    A function to be called when a different radio button is selected. If user clicks on a radio button which is already checked, this function will NOT be called. The function will be passed a single parameter - value of the newly checked radio button.
+    A function to be called when a different radio button is selected. If user clicks on a radio button which is already checked, this function will NOT be called. The function will be passed a single parameter - value of the radio button.
+</p>
+
+<p>
+    Note: This parameter has different meaning depending on value of isStateful parameter - please see description of this parameter for details.
 </p>
 
 <h2>fireOnMount</h2>
 <b>Type: boolean, optional</b>
 <p>
     If set to true and onChange is specified, the onChange function will be called on mount with the defaultValue as parameter.
+</p>
+
+<p>
+    Note: in case isStateful is set to false, this flag has no effect, because there is no initial state to be fired.
 </p>
 
 <h2>inputClassName</h2>

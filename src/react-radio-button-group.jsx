@@ -6,70 +6,80 @@ import {selectStringParam} from './util';
 
 const CLASS_NAME = 'className';
 
-const selectionChanged = (newValue, currentValue) => {
-    return newValue !== currentValue;
-}
-
 class ReactRadioButtonGroup extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.id = ReactRadioButtonGroup.generateId();
-
-        this.state = this.createInitialState(props);
-
-        this.handleChange = this.handleChange.bind(this);
-        this.fireCurrentValue = this.fireCurrentValue.bind(this);
-    }
-
     getComponentName() {
         return 'react-radio-button-group';
-    }
-
-    createInitialState(props) {
-        return {currentValue: props.defaultValue};
-    }
-
-    getOnChangeCallbackParam() {
-        return this.state.currentValue;
-    }
-
-    fireCurrentValue() {
-        if (this.props.onChange) {
-            this.props.onChange(this.getOnChangeCallbackParam());
-        }
-    }
-
-    updateState(event, callback) {
-        const newValue = event.target.name;
-        this.setState({currentValue: newValue}, callback);
-    }
-
-    stateChanged(oldState, newState) {
-        return oldState.currentValue !== newState.currentValue;
-    }
-
-    handleChange(event) {
-        const oldState = JSON.parse(JSON.stringify(this.state));
-        this.updateState(event, function() {
-            if (this.stateChanged(oldState, this.state)) {
-                this.fireCurrentValue();
-            }
-        }.bind(this));
-    }
-
-    componentDidMount() {
-        if (this.props.fireOnMount) {
-            this.fireCurrentValue();
-        }
     }
 
     getInputType() {
         return "radio";
     }
 
+    constructor(props) {
+        super(props);
+
+        this.id = ReactRadioButtonGroup.generateId();
+
+        if (this.isStateful()) {
+            this.state = this.createInitialState(props);
+        }
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    isStateful() {
+        return this.props.isStateful;
+    }
+
+    createInitialState(props) {
+        return {currentValue: props.value};
+    }
+
+    createStateFromEvent(event) {
+        return {
+            currentValue: event.target.name
+        };
+    }
+
+    fireCurrentState() {
+        if (this.props.onChange) {
+            this.props.onChange(this.state.currentValue);
+        }
+    }
+
+    fireEventValue(event) {
+        if (this.props.onChange) {
+            this.props.onChange(event.target.name);
+        }
+    }
+
+    willStateChange(oldState, newState) {
+        return oldState.currentValue !== newState.currentValue;
+    }
+
+    handleChange(event) {
+        if (this.isStateful()) {
+            const newState = this.createStateFromEvent(event);
+            if (this.willStateChange(this.state, newState)) {
+                this.setState(newState, function() {
+                    this.fireCurrentState();
+                }.bind(this));
+            }
+        }
+        else {
+            this.fireEventValue(event);
+        }
+    }
+
+    componentDidMount() {
+        if (this.isStateful() && this.props.fireOnMount) {
+            this.fireCurrentState();
+        }
+    }
+
     getIsValueChecked(value) {
-        return this.state.currentValue === value;
+        return (this.isStateful() && this.state.currentValue === value) ||
+            (! this.isStateful() && this.props.value === value);
     }
 
     render() {
@@ -115,7 +125,7 @@ ReactRadioButtonGroup.propTypes = {
             React.PropTypes.string
         ])
     ).isRequired,
-    defaultValue: React.PropTypes.string.isRequired,
+    value: React.PropTypes.string.isRequired,
     onChange: React.PropTypes.func,
     inputClassName: React.PropTypes.string,
     labelClassName:  React.PropTypes.string,
