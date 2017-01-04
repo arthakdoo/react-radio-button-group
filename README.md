@@ -1,5 +1,5 @@
 # react-radio-group
-React component for a group of radio buttons
+Stateful React component for a group of radio buttons
 
 <h1> Dependencies </h1>
 
