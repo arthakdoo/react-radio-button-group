@@ -79,11 +79,11 @@ Type: <b>array</b>; required
 
 <pre>
     {
-        value: 'apple',                    <span style='color: green'>// required; <b>value</b> attribute of input[type=radio]</span>
-        label: 'Apple',                    <span style='color: green'>// <b>text</b> label text; if not specified, uses <b>value</b></span>
-        itemClassName: 'radio-group-item', <span style='color: green'>// <b>class</b> attribute of <b>item</b>, the div encompassing input and label</span>
-        labelClassName: 'label-item',      <span style='color: green'>// <b>class</b> attribute of <b>label</b></span>
-        inputClassName: 'radio-item'       <span style='color: green'>// <b>class</b> attribute of <b>input</b></span>
+        value: 'apple',                 <span style='color: green'>// required; <b>value</b> attribute of input[type=radio]</span>
+        label: 'Apple',                 <span style='color: green'>// <b>text</b> label text; if not specified, uses <b>value</b></span>
+        itemClassName: 'cssForItem',    <span style='color: green'>// <b>class</b> attribute of <b>item</b>, the div encompassing input and label</span>
+        labelClassName: 'cssForLabel',  <span style='color: green'>// <b>class</b> attribute of <b>label</b></span>
+        inputClassName: 'cssForInput'   <span style='color: green'>// <b>class</b> attribute of <b>input</b></span>
     }
 </pre>
 
