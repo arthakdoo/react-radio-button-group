@@ -1,0 +1,9 @@
+Usage:
+
+1. npm install
+    Install all dependencies (requires internet connection)
+2. npm install -g webpack-dev-server (try with sudo if permissions required)
+    Used in step 3, it serves the webpack app
+3. npm start
+    Run the test-server in webpack-dev-server
+4. Open localhost:8080 in your browser and try the app
