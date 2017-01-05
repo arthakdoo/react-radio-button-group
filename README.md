@@ -20,6 +20,7 @@ Stateful or Stateless React component for a group of radio buttons
 		    <li><a href='#groupClassName'>groupClassName</a></li>
 	    </ul>
 	</li>
+    <li><a href='#Examples'>Examples</a></li>
 </ul>
 
 <a name='Description'></a>
@@ -206,3 +207,13 @@ Type: <b>string</b>; optional, default none
 <p>
     If specified, it will populate <em>class</em> attribute of the <em>div</em> encompassing the whole group of items.
 </p>
+
+<a name='Examples'></a>
+<h1>Examples</h1>
+<p>
+    Examples are provided in the project. Please download the <a href="https://github.com/dmaksimovic/react-radio-button-group">project</a> by running "git clone git@github.com:dmaksimovic/react-radio-button-group.git" in command line, and then follow the README files in each:
+</p>
+<ul>
+    <li><a href='https://github.com/dmaksimovic/react-radio-button-group/tree/master/redux-example'>Redux-example</a> - The react-radio-button-group used in a Redux implementation</li>
+    <li><a href="https://github.com/dmaksimovic/react-radio-button-group/tree/master/stateful-example">Stateful-example</a> - The react-radio-button-group used in independent fashion</li>
+</ul>
