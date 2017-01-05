@@ -5,11 +5,11 @@ Stateful or Stateless React component for a group of radio buttons
 
 <ul>
 	<li><a href='#Description'>Description</a></li>
-	<li><a href='#Usage'>Usage</a></li>
 	<li><a href='#Syntax'>Syntax</a></li>
 	<li><a href='#Props'>Props</a>
 	    <ul>
 		    <li><a href='#options'>options</a></li>
+            <li><a href='#name'>name</a></li>
 		    <li><a href='#isStateful'>isStateful</a></li>
 		    <li><a href='#value'>value</a></li>
 		    <li><a href='#onChange'>onChange</a></li>
@@ -36,7 +36,7 @@ Stateful or Stateless React component for a group of radio buttons
         &lt;div class='<b>groupClassName</b>'}&gt; <span style='color: green'>&lt;!-- div for whole <b>group</b> --&gt;</span>
 
             &lt;div class='<b>itemClassName</b>'&gt; <span style='color: green'>&lt;!--div for each <b>item</b> --&gt;</span>
-                &lt;input type='radio' class='<b>inputClassName</b> id='[unique-id]' name='<b>value</b>' /&gt;
+                &lt;input type='radio' class='<b>inputClassName</b> id='[unique-id]' name='<b>name</b>' value='value' /&gt;
                 &lt;label class='<b>labelClassName</b>' for='[unique-id]'&gt;<b>Label</b>&lt;/label&gt;
             &lt;/div&gt;
 
@@ -46,22 +46,8 @@ Stateful or Stateless React component for a group of radio buttons
     </pre>
 
 <p>
-    In other words, as implied in Usage above, this component does not add any FORM element and leaves that entirely to consumer.
+    Note that this component does not add any FORM element and leaves that entirely to consumer if needed.
 </p>
-
-<a name='Usage'></a>
-<h1> Usage </h1>
-<pre>
-    import ReactRadioButtonGroup from 'react-radio-button-group';
-    ReactDOM.render(
-        &lt;form submit='...'&gt;
-            &lt;[other form fields]...&gt;
-            <b>&lt;ReactRadioButtonGroup {...props}/&gt;</b>
-            &lt;[other form fields]...&gt;
-            &lt;button type='submit'&gt;
-        &lt;/form&gt;
-    );
-</pre>
 
 <a name='Syntax'></a>
 <h1> Syntax </h1>
@@ -85,14 +71,14 @@ Stateful or Stateless React component for a group of radio buttons
 
 <a name='options'></a>
 <h2>options</h2>
-<b>Type: array, required</b>
+<b>Type: array; required</b>
 <p>
     An array in which each element specifies a single item in the group (item = option = radio + its label). Each element can be either a <b>string</b> or an <b>object</b> of the following form:
 </p>
 
 <pre>
     {
-        value: 'apple',                    <span style='color: green'>// required; <b>name</b> attribute of input[type=radio]</span>
+        value: 'apple',                    <span style='color: green'>// required; <b>value</b> attribute of input[type=radio]</span>
         label: 'Apple',                    <span style='color: green'>// <b>text</b> label text; if not specified, uses <b>value</b></span>
         itemClassName: 'radio-group-item', <span style='color: green'>// <b>class</b> attribute of <b>item</b>, the div encompassing input and label</span>
         labelClassName: 'label-item',      <span style='color: green'>// <b>class</b> attribute of <b>label</b></span>
@@ -144,19 +130,21 @@ Stateful or Stateless React component for a group of radio buttons
 
 <a name="name"></a>
 <h2>name</h2>
+<b>Type: string; required</b>
 <p>
     Attribute `name` for all inputs. This is needed when the radio-group is used within a form, because that is what is going to be sent in POST/GET request.
 </p>
 
 <a name='isStateful'></a>
 <h2>isStateful</h2>
+<b>Type: boolean; optional, default false</b>
 If isStateful=true, then state is maintained and inputs are controlled by this state. In this case, the <b>value</b> parameter is used only on mount to specify the initialy checked input. Later, use onChange callback to be notified about a new value of the group.
 
 If isStateful=false (default), then state is not maintained and <i>checked</i> status of inputs is controlled purely by <b>value</b> parameter. Use this component in stateless group when you want to integrate it into a Redux framework. The onChange callback will signal when the user is trying to select a different radio button, which you should then use to generate a new <b>value</b> for this component and re-render it. If isStateful is false, the <i>fireOnMount</i> flag (below) has no effect because there is no initial state.
 
 <a name='value'></a>
 <h2>value</h2>
-<b>Type: string, required</b>
+<b>Type: string; optional, default none selected</b>
 <p>
     The radio button to be checked. The radio button to be checked is specified by its <b>value</b>. In example above, this could be <b>Apple</b> or <b>Mandarin_orange</b>.
 </p>
@@ -167,7 +155,7 @@ If isStateful=false (default), then state is not maintained and <i>checked</i> s
 
 <a name='onChange'></a>
 <h2>onChange</h2>
-<b>Type: func, optional</b>
+<b>Type: function; optional, default void</b>
 <p>
     A function to be called when a different radio button is selected. If user clicks on a radio button which is already checked, this function will NOT be called. The function will be passed a single parameter - value of the radio button.
 </p>
@@ -178,7 +166,7 @@ If isStateful=false (default), then state is not maintained and <i>checked</i> s
 
 <a name='fireOnMount'></a>
 <h2>fireOnMount</h2>
-<b>Type: boolean, optional</b>
+<b>Type: boolean; optional, default false</b>
 <p>
     If set to true and onChange is specified, the onChange function will be called on mount with the defaultValue as parameter.
 </p>
@@ -189,28 +177,28 @@ If isStateful=false (default), then state is not maintained and <i>checked</i> s
 
 <a name='inputClassName'></a>
 <h2>inputClassName</h2>
-<b>Type: string, optional</b>
+<b>Type: string; optional, default none</b>
 <p>
     If specified, it will populate all inputs' <em>class</em> attributes. If any option from <em>options</em> parameter specifies a different inputClassName, it will have priority over this one.
 </p>
 
 <a name='labelClassName'></a>
 <h2>labelClassName</h2>
-<b>Type: string, optional</b>
+<b>Type: string; optional, default none</b>
 <p>
     If specified, it will populate all labels' <em>class</em> attributes. If any option from <em>options</em> parameter specifies a different labelClassName, it will have priority over this one.
 </p>
 
 <a name='itemClassName'></a>
 <h2>itemClassName</h2>
-<b>Type: string, optional</b>
+<b>Type: string; optional, default none</b>
 <p>
     If specified, it will populate all <em>class</em> attributes of <em>div</em>'s containing radio-label groups. If any option from <em>options</em> parameter specifies a different itemClassName, it will have priority over this one.
 </p>
 
 <a name='groupClassName'></a>
 <h2>groupClassName</h2>
-<b>Type: string, optional</b>
+<b>Type: string; optional, default none</b>
 <p>
     If specified, it will populate <em>class</em> attribute of the <em>div</em> encompassing the whole group of items.
 </p>
