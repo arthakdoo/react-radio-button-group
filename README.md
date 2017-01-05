@@ -66,19 +66,19 @@ Stateful or Stateless React component for a group of radio buttons
 <a name='Syntax'></a>
 <h1> Syntax </h1>
 <pre>
-    &lt;<b>ReactRadioButtonGroup</b>
-        <b>options</b>=array(string | {value <span style='color: green'>[required]</span>, label, itemClassName, inputClassName, labelClassName}) <span style='color: green'>[required]</span>
-        <b>isStateful</b>=bool (false by default)
-        <b>value</b>=string <span style='color: green'>[required]</span>
-        <b>onChange</b>=func(checkedValue)
-        <b>fireOnMount</b>=true|false
-        <b>itemClassName</b>=string
-        <b>inputClassName</b>=string
-        <b>labelClassName</b>=string
-        <b>groupClassName</b>=string
+    &lt;ReactRadioButtonGroup
+        options={['One', 'Two', 'Three']} <span style='color: green'>[required param]</span>
+        name="number" <span style='color: green'>[required param]</span>
+        isStateful={true}</b>
+        value="Two"
+        onChange={function(checkedValue) {console.log("New value: ", checkedValue);}}
+        fireOnMount={false}
+        itemClassName="cssForItem"
+        inputClassName="cssForInput"
+        labelClassName="cssForLabel"
+        groupClassName="cssForAll"
     /&gt;
 </pre>
-
 
 <a name='Props'></a>
 <h1> Props </h1>
@@ -109,12 +109,13 @@ Stateful or Stateless React component for a group of radio buttons
 </p>
 
 <pre>
-    var options = [
+    var fruits = [
         '<b>Apple</b>',
         {value: '<b>Mandarin_orange</b>', label: 'Mandarin Orange'},
         {value: 'Pear', label: 'Pear', itemClassName: '<b>pear-item</b>', labelClassName: '<b>pear-label</b>'}
     ];
-    &lt;ReactRadioButtonGroup options={options}/&gt;
+
+    &lt;ReactRadioButtonGroup options={options} name="fruit" /&gt;
 </pre>
 
 <p>
@@ -124,22 +125,28 @@ Stateful or Stateless React component for a group of radio buttons
 <pre>
     &lt;div&gt;
         &lt;div&gt;
-            &lt;input type='radio' name='<b>Apple</b>'/&gt;
+            &lt;input type='radio' name='fruit' value='<b>Apple</b>'/&gt;
             &lt;label&gt;<b>Apple</b>&lt;/label&gt;
         &lt;/div&gt;
 
         &lt;div&gt;
-            &lt;input type='radio' name='<b>Mandarin_orange</b>'/&gt;
+            &lt;input type='radio' name='fruit' value='<b>Mandarin_orange</b>'/&gt;
             &lt;label&gt;Mandarin Orange&lt;/label&gt;
         &lt;/div&gt;
 
          &lt;div class='<b>pear-item</b>'&gt;
-            &lt;input type='radio' name='Pear'/&gt;
+            &lt;input type='radio' name='fruit' value='Pear'/&gt;
             &lt;label class='<b>pear-label</b>'&gt;Pear&lt;/label&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/pre&gt;
 </pre>
+
+<a name="name"></a>
+<h2>name</h2>
+<p>
+    Attribute `name` for all inputs. This is needed when the radio-group is used within a form, because that is what is going to be sent in POST/GET request.
+</p>
 
 <a name='isStateful'></a>
 <h2>isStateful</h2>

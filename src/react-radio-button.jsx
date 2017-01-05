@@ -25,7 +25,9 @@ export default class ReactRadioButton extends React.Component {
                     id={inputId}
                     onChange={this.props.onChange}
                     {...getNonEmptyAttr(CLASS_NAME, inputClassName)}
-                    name={this.props.value}/>
+                    value={this.props.value}
+                    name={this.props.name}
+                />
                 <label
                     htmlFor={inputId}
                     {...getNonEmptyAttr(CLASS_NAME, labelClassName)}>

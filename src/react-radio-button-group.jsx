@@ -37,7 +37,7 @@ class ReactRadioButtonGroup extends React.Component {
 
     createStateFromEvent(event) {
         return {
-            currentValue: event.target.name
+            currentValue: event.target.value
         };
     }
 
@@ -49,7 +49,7 @@ class ReactRadioButtonGroup extends React.Component {
 
     fireEventValue(event) {
         if (this.props.onChange) {
-            this.props.onChange(event.target.name);
+            this.props.onChange(event.target.value);
         }
     }
 
@@ -92,15 +92,16 @@ class ReactRadioButtonGroup extends React.Component {
                     const value = selectStringParam(option, option.value);
                     return (
                         <ReactRadioButton key={i}
-                            value={value}
-                            inputType={this.getInputType()}
-                            isChecked={this.getIsValueChecked(value)}
-                            groupId={groupId}
-                            option={option}
-                            onChange={this.handleChange}
-                            inputClassName={this.props.inputClassName}
-                            labelClassName={this.props.labelClassName}
-                            itemClassName={this.props.itemClassName}
+                                          name={this.props.name}
+                                          value={value}
+                                          inputType={this.getInputType()}
+                                          isChecked={this.getIsValueChecked(value)}
+                                          groupId={groupId}
+                                          option={option}
+                                          onChange={this.handleChange}
+                                          inputClassName={this.props.inputClassName}
+                                          labelClassName={this.props.labelClassName}
+                                          itemClassName={this.props.itemClassName}
                         />
                     );
                 })}
@@ -125,7 +126,8 @@ ReactRadioButtonGroup.propTypes = {
             React.PropTypes.string
         ])
     ).isRequired,
-    value: React.PropTypes.string.isRequired,
+    name: React.PropTypes.string.isRequired,
+    value: React.PropTypes.string,
     onChange: React.PropTypes.func,
     inputClassName: React.PropTypes.string,
     labelClassName:  React.PropTypes.string,
