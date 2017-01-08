@@ -1,0 +1,239 @@
+exports[`test CSS classes all placed accordingly 1`] = `
+<div
+  className="cssGroup">
+  <div
+    className="cssItem">
+    <input
+      checked={false}
+      className="cssInput"
+      id="react-radio-button-group-3-TV"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="TV" />
+    <label
+      className="cssLabel"
+      htmlFor="react-radio-button-group-3-TV">
+      TV
+    </label>
+  </div>
+  <div
+    className="cssItem">
+    <input
+      checked={true}
+      className="cssInput"
+      id="react-radio-button-group-3-Radio"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="Radio" />
+    <label
+      className="cssLabel"
+      htmlFor="react-radio-button-group-3-Radio">
+      Radio
+    </label>
+  </div>
+  <div
+    className="cssItem">
+    <input
+      checked={false}
+      className="cssInput"
+      id="react-radio-button-group-3-Youtube"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="Youtube" />
+    <label
+      className="cssLabel"
+      htmlFor="react-radio-button-group-3-Youtube">
+      Youtube
+    </label>
+  </div>
+</div>
+`;
+
+exports[`test CSS in option is stronger than general CSS 1`] = `
+<div
+  className="cssGroup">
+  <div
+    className="cssItemTV">
+    <input
+      checked={false}
+      className="cssInput"
+      id="react-radio-button-group-4-TV"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="TV" />
+    <label
+      className="cssLabelTV"
+      htmlFor="react-radio-button-group-4-TV">
+      TV
+    </label>
+  </div>
+  <div
+    className="cssItem">
+    <input
+      checked={false}
+      className="cssInputYoutube"
+      id="react-radio-button-group-4-Youtube"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="Youtube" />
+    <label
+      className="cssLabel"
+      htmlFor="react-radio-button-group-4-Youtube">
+      Youtube
+    </label>
+  </div>
+  <div
+    className="cssItem">
+    <input
+      checked={true}
+      className="cssInput"
+      id="react-radio-button-group-4-Radio"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="Radio" />
+    <label
+      className="cssLabel"
+      htmlFor="react-radio-button-group-4-Radio">
+      Radio
+    </label>
+  </div>
+</div>
+`;
+
+exports[`test Label is used when present, not value 1`] = `
+<div>
+  <div>
+    <input
+      checked={false}
+      id="react-radio-button-group-5-TV"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="TV" />
+    <label
+      htmlFor="react-radio-button-group-5-TV">
+      Television
+    </label>
+  </div>
+  <div>
+    <input
+      checked={false}
+      id="react-radio-button-group-5-Youtube"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="Youtube" />
+    <label
+      htmlFor="react-radio-button-group-5-Youtube">
+      YouTube
+    </label>
+  </div>
+  <div>
+    <input
+      checked={false}
+      id="react-radio-button-group-5-Radio"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="Radio" />
+    <label
+      htmlFor="react-radio-button-group-5-Radio">
+      Radio Station
+    </label>
+  </div>
+</div>
+`;
+
+exports[`test Three text options yield three labels 1`] = `
+<div>
+  <div>
+    <input
+      checked={false}
+      id="react-radio-button-group-1-TV"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="TV" />
+    <label
+      htmlFor="react-radio-button-group-1-TV">
+      TV
+    </label>
+  </div>
+  <div>
+    <input
+      checked={false}
+      id="react-radio-button-group-1-Radio"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="Radio" />
+    <label
+      htmlFor="react-radio-button-group-1-Radio">
+      Radio
+    </label>
+  </div>
+  <div>
+    <input
+      checked={false}
+      id="react-radio-button-group-1-Youtube"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="Youtube" />
+    <label
+      htmlFor="react-radio-button-group-1-Youtube">
+      Youtube
+    </label>
+  </div>
+</div>
+`;
+
+exports[`test Value provided means checked input 1`] = `
+<div>
+  <div>
+    <input
+      checked={false}
+      id="react-radio-button-group-2-TV"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="TV" />
+    <label
+      htmlFor="react-radio-button-group-2-TV">
+      TV
+    </label>
+  </div>
+  <div>
+    <input
+      checked={true}
+      id="react-radio-button-group-2-Radio"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="Radio" />
+    <label
+      htmlFor="react-radio-button-group-2-Radio">
+      Radio
+    </label>
+  </div>
+  <div>
+    <input
+      checked={false}
+      id="react-radio-button-group-2-Youtube"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="Youtube" />
+    <label
+      htmlFor="react-radio-button-group-2-Youtube">
+      Youtube
+    </label>
+  </div>
+</div>
+`;

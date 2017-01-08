@@ -1,3 +1,5 @@
 src
 redux-example
 stateful-example
+test
+.babelrc

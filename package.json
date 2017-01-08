@@ -1,10 +1,10 @@
 {
   "name": "react-radio-button-group",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "React component containing configurable group of radio buttons",
   "main": "build/bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack",
     "prepublish": "npm run build"
   },
@@ -24,6 +24,13 @@
   },
   "homepage": "https://github.com/dmaksimovic/react-radio-button-group#readme",
   "devDependencies": {
+    "babel-jest": "^18.0.0",
+    "enzyme": "^2.7.0",
+    "jest": "^18.1.0",
+    "react-addons-test-utils": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-test-renderer": "^15.4.2",
+    "sinon": "^1.17.7",
     "webpack": "^1.14.0"
   },
   "dependencies": {

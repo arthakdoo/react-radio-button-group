@@ -41,16 +41,18 @@ class ReactRadioButtonGroup extends React.Component {
         };
     }
 
-    fireCurrentState() {
+    fireOnChange(param) {
         if (this.props.onChange) {
-            this.props.onChange(this.state.currentValue);
+            this.props.onChange(param);
         }
     }
 
+    fireCurrentState() {
+        this.fireOnChange(this.state.currentValue);
+    }
+
     fireEventValue(event) {
-        if (this.props.onChange) {
-            this.props.onChange(event.target.value);
-        }
+        this.fireOnChange(event.target.value);
     }
 
     willStateChange(oldState, newState) {
