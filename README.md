@@ -1,11 +1,11 @@
 # react-radio-group
-Stateful or Stateless React component for a group of radio buttons
+Configurable React component for a group of radio buttons
 
 <h1> Table of Contents </h1>
 
 <ul>
 	<li><a href='#Description'>Description</a></li>
-	<li><a href='#Syntax'>Syntax</a></li>
+	<li><a href='#Syntax'>Full syntax</a></li>
 	<li><a href='#Props'>Props</a>
 	    <ul>
 		    <li><a href='#options'>options</a></li>
@@ -26,32 +26,43 @@ Stateful or Stateless React component for a group of radio buttons
 <a name='Description'></a>
 <h1> Description </h1>
 <p>
-    This component will generate a group of radio buttons, each enriched with a unique ID and accompanied by a label. It may be stateless or stateful, depending on parameter isStateful. As such it can be used as independent and self-maintained (stateful), or within a managed framework like Redux, Flux etc. (stateless). Please see below <a name='#isStateful'>about isStateful parameter</a> for details.
-</p>
-
-<p>
-    The generated HTML will look like:
+    Simplest example:
 </p>
 
 <pre>
-        &lt;div class='<b>groupClassName</b>'}&gt; <span style='color: green'>&lt;!-- div for whole <b>group</b> --&gt;</span>
+    &lt;ReactRadioButtonGroup name="number" options={["One", "Two", "Three"]} value="Three"/&gt;
+</pre>
 
-            &lt;div class='<b>itemClassName</b>'&gt; <span style='color: green'>&lt;!--div for each <b>item</b> --&gt;</span>
-                &lt;input type='radio' class='<b>inputClassName</b> id='[unique-id]' name='<b>name</b>' value='value' /&gt;
-                &lt;label class='<b>labelClassName</b>' for='[unique-id]'&gt;<b>Label</b>&lt;/label&gt;
+<p>
+    This will generate a group of radio buttons, each enriched with a unique ID and accompanied by a label. It may be stateless or stateful, depending on parameter isStateful. As such it can be used as independent and self-maintained (stateful), or within a managed framework like Redux, Flux etc. (stateless). Please see below <a name='#isStateful'>about isStateful parameter</a> for details.
+</p>
+
+<p>
+    The generated HTML for the example above will look like:
+</p>
+
+<pre>
+        &lt;div&gt;
+            &lt;div&gt;
+                &lt;input type='radio' id='react-radio-button-group-1' name='number' value='One' /&gt;
+                &lt;label for='[unique-id]'&gt;One&lt;/label&gt;
             &lt;/div&gt;
 
             ...
 
+            &lt;div&gt;
+                &lt;input type='radio' id='react-radio-button-group-1' name='number' value='Three' checked /&gt;
+                &lt;label for='[unique-id]'&gt;Three&lt;/label&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
-    </pre>
+</pre>
 
 <p>
     Note that this component does not add any FORM element and leaves that entirely to consumer if needed.
 </p>
 
 <a name='Syntax'></a>
-<h1> Syntax </h1>
+<h1> Full syntax </h1>
 <pre>
     &lt;ReactRadioButtonGroup
         options={['One', 'Two', 'Three']} <span style='color: green'>[required param]</span>
