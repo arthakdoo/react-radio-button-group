@@ -17,6 +17,7 @@ export default class ReactRadioButton extends React.Component {
         const labelClassName = selectStringParam(option.labelClassName, this.props.labelClassName, '');
 
         const inputId = getUniqueId(this.props.groupId, this.props.value);
+        const defaultValue = this.props.defaultValue ? {defaultValue: this.props.defaultValue} : {};
 
         return (
             <div {...getNonEmptyAttr(CLASS_NAME, itemClassName)}>
@@ -27,6 +28,7 @@ export default class ReactRadioButton extends React.Component {
                     {...getNonEmptyAttr(CLASS_NAME, inputClassName)}
                     value={this.props.value}
                     name={this.props.name}
+                    {...defaultValue}
                 />
                 <label
                     htmlFor={inputId}

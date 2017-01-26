@@ -101,6 +101,7 @@ class ReactRadioButtonGroup extends React.Component {
                                           groupId={groupId}
                                           option={option}
                                           onChange={this.handleChange}
+                                          defaultValue={this.props.defaultValue}
                                           inputClassName={this.props.inputClassName}
                                           labelClassName={this.props.labelClassName}
                                           itemClassName={this.props.itemClassName}
@@ -129,6 +130,7 @@ ReactRadioButtonGroup.propTypes = {
         ])
     ).isRequired,
     name: React.PropTypes.string.isRequired,
+    defaultValue: React.PropTypes.string,
     value: React.PropTypes.string,
     onChange: React.PropTypes.func,
     inputClassName: React.PropTypes.string,
