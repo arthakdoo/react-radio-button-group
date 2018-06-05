@@ -6,6 +6,7 @@ exports[`test CSS classes all placed accordingly 1`] = `
     <input
       checked={false}
       className="cssInput"
+      disabled={false}
       id="react-radio-button-group-3-TV"
       name="media"
       onChange={[Function]}
@@ -22,6 +23,7 @@ exports[`test CSS classes all placed accordingly 1`] = `
     <input
       checked={true}
       className="cssInput"
+      disabled={false}
       id="react-radio-button-group-3-Radio"
       name="media"
       onChange={[Function]}
@@ -38,6 +40,7 @@ exports[`test CSS classes all placed accordingly 1`] = `
     <input
       checked={false}
       className="cssInput"
+      disabled={false}
       id="react-radio-button-group-3-Youtube"
       name="media"
       onChange={[Function]}
@@ -60,6 +63,7 @@ exports[`test CSS in option is stronger than general CSS 1`] = `
     <input
       checked={false}
       className="cssInput"
+      disabled={false}
       id="react-radio-button-group-4-TV"
       name="media"
       onChange={[Function]}
@@ -76,6 +80,7 @@ exports[`test CSS in option is stronger than general CSS 1`] = `
     <input
       checked={false}
       className="cssInputYoutube"
+      disabled={false}
       id="react-radio-button-group-4-Youtube"
       name="media"
       onChange={[Function]}
@@ -92,6 +97,7 @@ exports[`test CSS in option is stronger than general CSS 1`] = `
     <input
       checked={true}
       className="cssInput"
+      disabled={false}
       id="react-radio-button-group-4-Radio"
       name="media"
       onChange={[Function]}
@@ -111,6 +117,7 @@ exports[`test Label is used when present, not value 1`] = `
   <div>
     <input
       checked={false}
+      disabled={false}
       id="react-radio-button-group-5-TV"
       name="media"
       onChange={[Function]}
@@ -124,6 +131,7 @@ exports[`test Label is used when present, not value 1`] = `
   <div>
     <input
       checked={false}
+      disabled={false}
       id="react-radio-button-group-5-Youtube"
       name="media"
       onChange={[Function]}
@@ -137,6 +145,7 @@ exports[`test Label is used when present, not value 1`] = `
   <div>
     <input
       checked={false}
+      disabled={false}
       id="react-radio-button-group-5-Radio"
       name="media"
       onChange={[Function]}
@@ -150,11 +159,59 @@ exports[`test Label is used when present, not value 1`] = `
 </div>
 `;
 
+exports[`test Test disabled prop works 1`] = `
+<div>
+  <div>
+    <input
+      checked={false}
+      disabled={false}
+      id="react-radio-button-group-12-TV"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="TV" />
+    <label
+      htmlFor="react-radio-button-group-12-TV">
+      TV
+    </label>
+  </div>
+  <div>
+    <input
+      checked={false}
+      disabled={false}
+      id="react-radio-button-group-12-Radio"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="Radio" />
+    <label
+      htmlFor="react-radio-button-group-12-Radio">
+      Radio
+    </label>
+  </div>
+  <div>
+    <input
+      checked={false}
+      disabled={false}
+      id="react-radio-button-group-12-Youtube"
+      name="media"
+      onChange={[Function]}
+      type="radio"
+      value="Youtube" />
+    <label
+      htmlFor="react-radio-button-group-12-Youtube">
+      Youtube
+    </label>
+  </div>
+</div>
+`;
+
 exports[`test Three text options yield three labels 1`] = `
 <div>
   <div>
     <input
       checked={false}
+      disabled={false}
       id="react-radio-button-group-1-TV"
       name="media"
       onChange={[Function]}
@@ -168,6 +225,7 @@ exports[`test Three text options yield three labels 1`] = `
   <div>
     <input
       checked={false}
+      disabled={false}
       id="react-radio-button-group-1-Radio"
       name="media"
       onChange={[Function]}
@@ -181,6 +239,7 @@ exports[`test Three text options yield three labels 1`] = `
   <div>
     <input
       checked={false}
+      disabled={false}
       id="react-radio-button-group-1-Youtube"
       name="media"
       onChange={[Function]}
@@ -199,6 +258,7 @@ exports[`test Value provided means checked input 1`] = `
   <div>
     <input
       checked={false}
+      disabled={false}
       id="react-radio-button-group-2-TV"
       name="media"
       onChange={[Function]}
@@ -212,6 +272,7 @@ exports[`test Value provided means checked input 1`] = `
   <div>
     <input
       checked={true}
+      disabled={false}
       id="react-radio-button-group-2-Radio"
       name="media"
       onChange={[Function]}
@@ -225,6 +286,7 @@ exports[`test Value provided means checked input 1`] = `
   <div>
     <input
       checked={false}
+      disabled={false}
       id="react-radio-button-group-2-Youtube"
       name="media"
       onChange={[Function]}

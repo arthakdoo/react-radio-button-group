@@ -28,6 +28,7 @@ export default class ReactRadioButton extends React.Component {
                     {...getNonEmptyAttr(CLASS_NAME, inputClassName)}
                     value={this.props.value}
                     name={this.props.name}
+                    disabled={this.props.disabled}
                     {...defaultValue}
                 />
                 <label

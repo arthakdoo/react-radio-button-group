@@ -183,3 +183,13 @@ test("Passing invalid onChange function does not crash and means no callback", (
     group.find('input').first().simulate('change');
     expect(2 + 2).toEqual(4);
 });
+
+test("Test disabled prop works", () => {
+    expect(
+        renderer.create(
+            <ReactRadioButtonGroup
+                name='media'
+                options={["TV", "Radio", "Youtube"]}/>
+        ).toJSON()
+    ).toMatchSnapshot();
+});

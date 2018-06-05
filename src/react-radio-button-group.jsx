@@ -87,6 +87,7 @@ class ReactRadioButtonGroup extends React.Component {
     render() {
         const groupClassName = this.props.groupClassName || '';
         const groupId = this.getComponentName() + '-' + this.id;
+        const disabled = this.props.disabled != null ? this.props.disabled : false;
 
         return (
             <div {...getNonEmptyAttr(CLASS_NAME, groupClassName)}>
@@ -100,6 +101,7 @@ class ReactRadioButtonGroup extends React.Component {
                                           isChecked={this.getIsValueChecked(value)}
                                           groupId={groupId}
                                           option={option}
+                                          disabled={disabled}
                                           onChange={this.handleChange}
                                           defaultValue={this.props.defaultValue}
                                           inputClassName={this.props.inputClassName}
