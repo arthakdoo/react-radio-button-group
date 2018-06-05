@@ -189,7 +189,8 @@ test("Test disabled prop works", () => {
         renderer.create(
             <ReactRadioButtonGroup
                 name='media'
-                options={["TV", "Radio", "Youtube"]}/>
+                options={["TV", "Radio", "Youtube"]}
+                disabled={true}/>
         ).toJSON()
     ).toMatchSnapshot();
 });

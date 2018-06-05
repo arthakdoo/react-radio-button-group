@@ -164,7 +164,7 @@ exports[`test Test disabled prop works 1`] = `
   <div>
     <input
       checked={false}
-      disabled={false}
+      disabled={true}
       id="react-radio-button-group-12-TV"
       name="media"
       onChange={[Function]}
@@ -178,7 +178,7 @@ exports[`test Test disabled prop works 1`] = `
   <div>
     <input
       checked={false}
-      disabled={false}
+      disabled={true}
       id="react-radio-button-group-12-Radio"
       name="media"
       onChange={[Function]}
@@ -192,7 +192,7 @@ exports[`test Test disabled prop works 1`] = `
   <div>
     <input
       checked={false}
-      disabled={false}
+      disabled={true}
       id="react-radio-button-group-12-Youtube"
       name="media"
       onChange={[Function]}
